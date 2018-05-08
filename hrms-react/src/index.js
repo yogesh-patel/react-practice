@@ -4,7 +4,8 @@ import {createBrowserHistory} from "history";
 import {Router, Route, Switch} from "react-router-dom";
 import {Provider} from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
-
+import LoginContainer from './containers/LoginContainer';
+import Dashboard from "layouts/Dashboard/Dashboard.jsx";
 
 import "assets/css/material-dashboard-react.css?v=1.2.0";
 
@@ -22,9 +23,8 @@ ReactDOM.render(
     <Provider store={store}>
       <Router history={hist}>
         <Switch>
-          {indexRoutes.map((prop, key) => {
-            return <Route path={prop.path} component={prop.component} key={key}/>;
-          })}
+          <Route path="/login" component={LoginContainer} />
+          <Route path="/" component={Dashboard}/>
         </Switch>
       </Router>
     </Provider>,

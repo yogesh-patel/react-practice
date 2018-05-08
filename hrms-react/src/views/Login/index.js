@@ -1,19 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import tasksCardStyle from "assets/jss/material-dashboard-react/tasksCardStyle";
 import {
-  ContentCopy,
-  Store,
-  InfoOutline,
-  Warning,
-  DateRange,
-  LocalOffer,
-  Update,
-  ArrowUpward,
-  AccessTime,
-  Accessibility
-} from "@material-ui/icons";
+  withStyles,
+  Card,
+  CardContent,
+  CardHeader,
+  Grid
+} from "material-ui";
 
-import { withStyles, Grid } from "material-ui";
 
 import {
   StatsCard,
@@ -25,11 +20,26 @@ import {
 } from "components";
 
 const LoginComponent = (props) => {
-
+  const {classes} = props;
+  return (
+      <Grid container alignItems="center" justify="center" style={{height: 500}}>
+        <ItemGrid xs={12} sm={12} md={4}>
+          <Card className={classes.card}>
+            <CardHeader
+                classes={{
+                  root: classes.cardHeader,
+                  title: classes.cardTitle,
+                  content: classes.cardHeaderContent
+                }}
+                title="Login"/>
+            <CardContent>
+              <div>Login</div>
+            </CardContent>
+          </Card>
+        </ItemGrid>
+      </Grid>   )
 }
 
-LoginComponent.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+LoginComponent.propTypes = {};
 
-export default LoginComponent;
+export default withStyles(tasksCardStyle)(LoginComponent);

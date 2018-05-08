@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginComponent from "../../views/Login/index";
 
 
 class LoginContainer extends React.Component {
@@ -20,7 +21,7 @@ class LoginContainer extends React.Component {
   }
 
   render(){
-
+    return <LoginComponent/>
   }
 }
 
